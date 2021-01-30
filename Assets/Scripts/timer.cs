@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class timer : MonoBehaviour
 {
-    public float timeInterval;
+    private float timeInterval;
     Image timerBar;
 
-    float timeElapsed;
+    private float timeElapsed;
+    private bool timerIsSet;
 
 
 
@@ -30,15 +31,25 @@ public class timer : MonoBehaviour
         }
         timerBar.fillAmount = (timeElapsed / timeInterval);
 
-        if (timeElapsed == timeInterval)
+        if (timeElapsed == timeInterval && timerIsSet)
         {
             ringTimer();
         }
 
     }
+    public void setTimer(float time)
+    {
+        timeInterval = time;
+        timerIsSet = true;
+    }
 
     private void ringTimer()
     {
         print("Time's up!");
+    }
+
+    public float getTimeElapsed()
+    {
+        return timeElapsed;
     }
 }
