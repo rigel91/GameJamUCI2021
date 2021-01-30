@@ -20,6 +20,21 @@ public class ConveyorBelt : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        collision.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        if (collision.GetComponent<Rigidbody2D>() != null)
+        {
+            collision.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<carryBox>() != null)
+        {
+            if (collision.GetComponent<carryBox>().checkIfBeingCarried() == false)
+            {
+                collision.GetComponent<carryBox>().PutDownBox();
+            }
+        }
+        
     }
 }
