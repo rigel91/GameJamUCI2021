@@ -16,22 +16,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            rb.velocity = new Vector3(0, speed, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rb.velocity = new Vector3(-speed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rb.velocity = new Vector3(0, -speed, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rb.velocity = new Vector3(speed, 0, 0);
-        }
+        //horizontal, vertical directions
+        float horiz = Input.GetAxisRaw("Horizontal");
+        float vert = Input.GetAxisRaw("Vertical");
+        rb.velocity = new Vector2(horiz * speed, vert * speed);
     }
 
     void FixedUpdate()
