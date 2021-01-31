@@ -1087,6 +1087,7 @@ RectTransform:
   - {fileID: 97658664}
   - {fileID: 1900565950}
   - {fileID: 2136663315}
+  - {fileID: 1968914422}
   m_Father: {fileID: 249262344}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1309,6 +1310,103 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &510973843
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 368379339}
+    m_Modifications:
+    - target: {fileID: 188314024854700993, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_Name
+      value: ScorePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 116.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 70.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -305.9126
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -199.05261
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13d21158473c8e44898f783f6982770d, type: 3}
 --- !u!1 &525987490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2397,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900565949}
   m_CullTransparentMesh: 0
+--- !u!224 &1968914422 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
+  m_PrefabInstance: {fileID: 510973843}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1985620132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,24 +2766,44 @@ MonoBehaviour:
   - Toontown
   - Shrimp Central
   - Oakland
+  - Vista
+  - Boston
+  - Miami
+  - Lumbridge
+  - San Jose
   streetsList:
   - Rainbow Road
   - Beach
   - Almond
   - Trebuka
   - Wallstreet
+  - Shellyfield
+  - Road
+  - Lane
+  - Zzyzx
+  - Hell
   firstNamesList:
   - Rigel
   - Richie
   - John
   - F.R.E.D.
   - Zelda
+  - Lawrence
+  - Erol
+  - Daniel
+  - Adrienne
+  - Tess
   lastNamesList:
   - Jones
   - O'mor
   - Chan
   - Mcormick
   - Alistar
+  - Rodriguez
+  - Jaramillo
+  - Jeong
+  - Patil
+  - Bryant
   boxList: []
 --- !u!1 &2134562646
 GameObject:
