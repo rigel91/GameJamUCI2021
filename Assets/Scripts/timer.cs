@@ -11,7 +11,7 @@ public class timer : MonoBehaviour
     private float timeElapsed;
     private bool timerIsSet;
 
-
+    private bool timesUp;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,8 @@ public class timer : MonoBehaviour
         timeElapsed = 0f;
 
         timerBar = this.GetComponent<Image>();
+
+        timesUp = false;
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class timer : MonoBehaviour
 
         if (timeElapsed == timeInterval && timerIsSet)
         {
+            timesUp = true;
             ringTimer();
         }
 
@@ -43,9 +46,9 @@ public class timer : MonoBehaviour
         timerIsSet = true;
     }
 
-    private void ringTimer()
+    public bool ringTimer()
     {
-        print("Time's up!");
+        return timesUp;
     }
 
     public float getTimeElapsed()
