@@ -40,6 +40,7 @@ public class BoxCollector : MonoBehaviour
         {
             if (rg.checkIfBoxHasBeenRequested(collision.gameObject))
             {
+                closeRequestForBox(collision.gameObject);
                 DestroyBox(collision);
             }
             else
@@ -60,5 +61,10 @@ public class BoxCollector : MonoBehaviour
 
         ScoreManager.instance.AddPoint();
         Destroy(collision.gameObject, 0.5f);
+    }
+
+    private void closeRequestForBox(GameObject box)
+    {
+        rg.closeRequest(box);
     }
 }
