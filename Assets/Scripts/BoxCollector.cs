@@ -21,8 +21,20 @@ public class BoxCollector : MonoBehaviour
         if (collision.tag == "Box")
         {
             Debug.Log("Box!");
-
-            ScoreManager.instance.AddPoint();
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Box")
+        {
+            DestroyBox(collision);
+        }
+    }
+
+    public void DestroyBox(Collider2D collision)
+    {
+            ScoreManager.instance.AddPoint();
+            Destroy(collision.gameObject, 0.5f);
     }
 }
