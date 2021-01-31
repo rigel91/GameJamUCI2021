@@ -7,12 +7,14 @@ public class requestManager : MonoBehaviour
     private List<GameObject> requestedBoxes = new List<GameObject> { };
 
     private displayOpenRequests rtbm;
+    private boxManager bm;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rtbm = GameObject.FindGameObjectWithTag("reqTextBoxMngr").GetComponent<displayOpenRequests>();
+        bm = GameObject.FindGameObjectWithTag("boxSpawner").GetComponent<boxManager>();
     }
 
     // Update is called once per frame
@@ -70,6 +72,7 @@ public class requestManager : MonoBehaviour
         rtbm.closeRequest(to);
 
         requestedBoxes.Remove(box);
+        bm.deleteBox(box);
 
     }
 }
