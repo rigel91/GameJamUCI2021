@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private bool playerIsStopped;
     private Vector2 previousPlayerPosition;
 
+    private LevelLoader level;
 
     // Start is called before the first frame update
     void Start()
@@ -37,57 +38,66 @@ public class PlayerMovement : MonoBehaviour
         previousPlayerPosition = rb.position;
 
         carryingBox = false;
+
+        level = GameObject.Find("Level Loader Manager").GetComponent<LevelLoader>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //horizontal, vertical directions
-        float horiz = Input.GetAxisRaw("Horizontal");
-        float vert = Input.GetAxisRaw("Vertical");
-        rb.velocity = new Vector2(horiz * speed, vert * speed);
+        if (!level.stop)
+        {
+            //horizontal, vertical directions
+            float horiz = Input.GetAxisRaw("Horizontal");
+            float vert = Input.GetAxisRaw("Vertical");
+            rb.velocity = new Vector2(horiz * speed, vert * speed);
 
-        if (carryingBox)
-        {
-            checkMaximumCarryReach();
-        }
-        if (Input.GetKeyDown(liftDropKey))
-        {
             if (carryingBox)
             {
-                putDown();
+                checkMaximumCarryReach();
             }
-            else
+            if (Input.GetKeyDown(liftDropKey))
             {
-                pickUp();
+                if (carryingBox)
+                {
+                    putDown();
+                }
+                else
+                {
+                    pickUp();
+                }
+            }
+            if (carryingBox == false)
+            {
+                if (rb.velocity.y > 0)
+                {
+                    sr.sprite = upFacing;
+                }
+                if (rb.velocity.y < 0)
+                {
+                    sr.sprite = downFacing;
+                }
+                //if moving diagonally, prioritize right/left facing over up/down
+                if (rb.velocity.x > 0)
+                {
+                    sr.sprite = rightFacing;
+                }
+                if (rb.velocity.x < 0)
+                {
+                    sr.sprite = leftFacing;
+                }
+            }
+
+            if (Input.GetKeyDown(readKey))
+            {
+                readBox();
             }
         }
-        if (carryingBox == false)
+        else
         {
-            if (rb.velocity.y > 0)
-            {
-                sr.sprite = upFacing;
-            }
-            if (rb.velocity.y < 0)
-            {
-                sr.sprite = downFacing;
-            }
-            //if moving diagonally, prioritize right/left facing over up/down
-            if (rb.velocity.x > 0)
-            {
-                sr.sprite = rightFacing;
-            }
-            if (rb.velocity.x < 0)
-            {
-                sr.sprite = leftFacing;
-            }
+            rb.velocity = Vector2.zero;
         }
         
-
-        if (Input.GetKeyDown(readKey))
-        {
-            readBox();
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
