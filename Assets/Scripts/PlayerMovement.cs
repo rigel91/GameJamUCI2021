@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+
     public float speed;
 
     public string liftDropKey;
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
 
         carryingBox = false;
     }
@@ -47,6 +50,27 @@ public class PlayerMovement : MonoBehaviour
                 pickUp();
             }
         }
+        if (carryingBox == false)
+        {
+            if (rb.velocity.y > 0)
+            {
+                sr.sprite = upFacing;
+            }
+            if (rb.velocity.y < 0)
+            {
+                sr.sprite = upFacing;
+            }
+            //if moving diagonally, prioritize right/left facing over up/down
+            if (rb.velocity.x > 0)
+            {
+                sr.sprite = rightFacing;
+            }
+            if (rb.velocity.x < 0)
+            {
+                sr.sprite = leftFacing;
+            }
+        }
+        
 
         if (Input.GetKeyDown(readKey))
         {
