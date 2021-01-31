@@ -23,8 +23,6 @@ public class BoxCollector : MonoBehaviour
             Debug.Log("Box!");
 
             ScoreManager.instance.AddPoint();
-
-            Destroy(, 0.5);
         }
     }
 }
