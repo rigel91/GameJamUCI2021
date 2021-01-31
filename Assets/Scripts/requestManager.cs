@@ -6,11 +6,13 @@ public class requestManager : MonoBehaviour
 {
     private List<GameObject> requestedBoxes = new List<GameObject> { };
 
+    private displayOpenRequests rtbm;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rtbm = GameObject.FindGameObjectWithTag("reqTextBoxMngr").GetComponent<displayOpenRequests>();
     }
 
     // Update is called once per frame
@@ -22,7 +24,8 @@ public class requestManager : MonoBehaviour
     public void requestBox(List<GameObject> boxes)
     {
 
-        print(selectBoxInfoToRequest(boxes));
+        //print(selectBoxInfoToRequest(boxes));
+        rtbm.openRequest(selectBoxInfoToRequest(boxes));
 
     }
 
@@ -53,5 +56,20 @@ public class requestManager : MonoBehaviour
     {
         //print(requestedBoxes.Contains(box));
         return requestedBoxes.Contains(box);
+    }
+
+    public void closeRequest(GameObject box)
+    {
+        //check which request matches the box being destroyed by loading from, name, and to
+        string from = box.GetComponent<boxInfo>().GetFrom();
+        string name = box.GetComponent<boxInfo>().GetName();
+        string to = box.GetComponent<boxInfo>().GetTo();
+
+        rtbm.closeRequest(from);
+        rtbm.closeRequest(name);
+        rtbm.closeRequest(to);
+
+        requestedBoxes.Remove(box);
+
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - Tag Canvas
   - player
   - requestGenerator
+  - reqTextBoxMngr
+  - requestCanvas
   layers:
   - Default
   - TransparentFX
