@@ -38,15 +38,21 @@ public class boxInfo : MonoBehaviour
     [System.NonSerialized]
     public List<string> mailBox = new List<string> { };
 
+    private SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject temp = GameObject.FindGameObjectWithTag("BoxSpawner");
         manage = temp.GetComponent<boxManager>();
 
+        sprite = GetComponent<SpriteRenderer>();
+
         mailBox.Add(CreateRandomName());
         mailBox.Add(CreateRandomHomeAddressTo());
         mailBox.Add(CreateRandomHomeAddressFrom());
+
+        sprite.sprite = manage.boxSprites[CreateRandomNumber(manage.boxSprites.Length)];
     }
 
     // Update is called once per frame
