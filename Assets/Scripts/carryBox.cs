@@ -6,17 +6,21 @@ public class carryBox : MonoBehaviour
 {
     private bool beingCarried;
     private bool canBeCarried;
+    private BoxCollider2D boxcol;
 
     public BoxCollider2D pickUpRange;
 
-    private Rigidbody2D carrier;
+    private Rigidbody2D carrierRB;
+    private PlayerMovement carrierPM;
     private Rigidbody2D boxRB;
 
     // Start is called before the first frame update
     void Start()
     {
         beingCarried = false;
+
         boxRB = this.GetComponent<Rigidbody2D>();
+        boxcol = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -24,20 +28,38 @@ public class carryBox : MonoBehaviour
     {
         if (beingCarried)
         {
-            boxRB.velocity = carrier.velocity;
+            if (!carrierPM.isPlayerStopped())
+            {
+                boxRB.velocity = carrierRB.velocity;
+            }
+            else
+            {
+                boxRB.velocity = new Vector2(0, 0);
+            }
         }
     }
 
-    public void CarryBox(Rigidbody2D player)
+    public Rigidbody2D getRB()
+    {
+        return boxRB;
+    }
+
+    public BoxCollider2D getBoxcol()
+    {
+        return boxcol;
+    }
+
+    public void CarryBox(Rigidbody2D playerRB, PlayerMovement playerPM)
     {
         beingCarried = true;
-        carrier = player;
+        carrierRB = playerRB;
+        carrierPM = playerPM;
     }
 
     public void PutDownBox()
     {
         beingCarried = false;
-        carrier = null;
+        carrierRB = null;
         boxRB.velocity = new Vector2(0, 0);
     }
 
@@ -65,5 +87,15 @@ public class carryBox : MonoBehaviour
     public bool checkIfBeingCarried()
     {
         return beingCarried;
+    }
+
+    public void activateBoxMovement()
+    {
+        boxRB.bodyType = RigidbodyType2D.Dynamic;
+        boxRB.drag = 0;
+    }
+    public void deactivateBoxMovement()
+    {
+        boxRB.bodyType = RigidbodyType2D.Static;
     }
 }
