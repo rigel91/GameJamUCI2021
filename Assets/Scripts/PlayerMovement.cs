@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if (rb.velocity.y < 0)
             {
-                sr.sprite = upFacing;
+                sr.sprite = downFacing;
             }
             //if moving diagonally, prioritize right/left facing over up/down
             if (rb.velocity.x > 0)
