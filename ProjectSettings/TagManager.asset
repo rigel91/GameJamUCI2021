@@ -8,6 +8,7 @@ TagManager:
   - BoxSpawner
   - Tag Canvas
   - player
+  - requestGenerator
   layers:
   - Default
   - TransparentFX

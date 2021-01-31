@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class requestManager : MonoBehaviour
 {
+    private List<GameObject> requestedBoxes = new List<GameObject> { };
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +19,39 @@ public class requestManager : MonoBehaviour
         
     }
 
-    public void requestBox()
+    public void requestBox(List<GameObject> boxes)
     {
-        print("make request");
+
+        print(selectBoxInfoToRequest(boxes));
+
+    }
+
+    private string selectBoxInfoToRequest(List<GameObject> boxes)
+    {
+        int maxTrials = 100; //just a fail-safe in case i create an infinte while loop accidentally
+        while (maxTrials > 0)
+        {
+            maxTrials -= 1;
+
+            int boxIndex = Random.Range(0, boxes.Count); ;
+
+            if (!requestedBoxes.Contains(boxes[boxIndex]))
+            {
+                requestedBoxes.Add(boxes[boxIndex]);
+
+                //replace print with writing to a text box
+                return (boxes[boxIndex].GetComponent<boxInfo>().mailBox[Random.Range(0, 2)]);
+            }
+
+        }
+
+        return "BOX NOT FOUND";
+
+    }
+
+    public bool checkIfBoxHasBeenRequested(GameObject box)
+    {
+        //print(requestedBoxes.Contains(box));
+        return requestedBoxes.Contains(box);
     }
 }

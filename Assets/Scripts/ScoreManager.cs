@@ -9,6 +9,9 @@ public class ScoreManager : MonoBehaviour
     public Text scoreText;
     int score = 0;
 
+    public int pointReward = 10;
+    public int pointPenalty = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,19 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPoint()
     {
-        score += 10;
+        score += pointReward;
+        updateScoreDisplay();
+    }
+
+    public void DeductPoints()
+    {
+        score -= pointPenalty;
+        updateScoreDisplay();
+        
+    }
+
+    private void updateScoreDisplay()
+    {
         scoreText.text = score.ToString();
     }
 }

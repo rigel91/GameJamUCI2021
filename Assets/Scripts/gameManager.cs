@@ -45,7 +45,7 @@ public class gameManager : MonoBehaviour
             }
             else if (nextTimerMarkIndex < totalBoxSpawns + totalBoxRequests)
             {
-                rm.requestBox();
+                rm.requestBox(bm.boxList);
                 manageTimerFlags();
             }
             

@@ -6,10 +6,13 @@ public class BoxCollector : MonoBehaviour
 {
     private PlayerMovement player;
 
+    public requestManager rg;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>();
+        rg = GameObject.FindGameObjectWithTag("requestGenerator").GetComponent<requestManager>();
     }
 
     // Update is called once per frame
@@ -30,9 +33,17 @@ public class BoxCollector : MonoBehaviour
     {
         if (collision.tag == "Box")
         {
-            DestroyBox(collision);
+            if (rg.checkIfBoxHasBeenRequested(collision.gameObject))
+            {
+                DestroyBox(collision);
+            }
+            else
+            {
+                ScoreManager.instance.DeductPoints();
+            }
         }
     }
+
 
     public void DestroyBox(Collider2D collision)
     {
