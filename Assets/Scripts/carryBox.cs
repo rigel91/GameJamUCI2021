@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class carryBox : MonoBehaviour
 {
@@ -12,16 +14,42 @@ public class carryBox : MonoBehaviour
     private Rigidbody2D carrier;
     private Rigidbody2D boxRB;
 
+    private boxInfo boxData;
+    [System.NonSerialized]
+    public Canvas boxUI;
+    public TextMeshProUGUI textName;
+    public TextMeshProUGUI textAddressTo;
+    public TextMeshProUGUI textAddressFrom;
+
     // Start is called before the first frame update
     void Start()
     {
         beingCarried = false;
         boxRB = this.GetComponent<Rigidbody2D>();
+
+        boxData = GetComponent<boxInfo>();
+
+        //gets the canvas from the boxes child
+        boxUI = GetComponentInChildren<Canvas>();
+        boxUI.enabled = false;
+    }
+
+    public void Set()
+    {
+        //boxUI.enabled = true;
+        textName.text = boxData.GetName();
+        textAddressTo.text = boxData.GetTo();
+        textAddressFrom.text = boxData.GetFrom();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            textName.text = boxData.CreateRandomName();
+        }
+
         if (beingCarried)
         {
             boxRB.velocity = carrier.velocity;

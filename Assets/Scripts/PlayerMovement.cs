@@ -104,7 +104,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void readBox()
     {
-        print("read");
+        if (carryableBox != null)
+        {
+            carryableBox.Set();
+            if (carryableBox.boxUI.enabled == true)
+            {
+                carryableBox.boxUI.enabled = false;
+            }
+            else
+            {
+                carryableBox.boxUI.enabled = true;
+            }
+        }
+        
     }
 
     public void canCarryBox(carryBox box)
