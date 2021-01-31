@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
     private carryBox carryableBox;
 
+    public Sprite downFacing;
+    public Sprite upFacing;
+    public Sprite rightFacing;
+    public Sprite leftFacing;
+
+
     // Start is called before the first frame update
     void Start()
     {
