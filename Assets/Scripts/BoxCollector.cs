@@ -8,11 +8,16 @@ public class BoxCollector : MonoBehaviour
 
     public requestManager rg;
 
+    [System.NonSerialized]
+    public int boxCount;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>();
         rg = GameObject.FindGameObjectWithTag("requestGenerator").GetComponent<requestManager>();
+
+        boxCount = 0;
     }
 
     // Update is called once per frame
@@ -47,6 +52,7 @@ public class BoxCollector : MonoBehaviour
 
     public void DestroyBox(Collider2D collision)
     {
+        boxCount++;
         if (player.isCarryingBox())
         {
             player.forceDrop();

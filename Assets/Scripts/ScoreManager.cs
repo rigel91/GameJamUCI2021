@@ -7,7 +7,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public Text scoreText;
-    int score = 0;
+    [System.NonSerialized]
+    public int score = 0;
 
     public int pointReward = 10;
     public int pointPenalty = 10;
