@@ -12,7 +12,10 @@ public class boxManager : MonoBehaviour
     public string[] firstNamesList;
     public string[] lastNamesList;
 
-    public List<GameObject> boxList;
+    public Sprite[] boxSprites;
+
+    [System.NonSerialized]
+    public List<GameObject> boxList = new List<GameObject> { };
 
     // Start is called before the first frame update
     void Start()
