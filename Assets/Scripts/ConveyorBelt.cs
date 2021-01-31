@@ -22,6 +22,10 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (collision.GetComponent<Rigidbody2D>() != null)
         {
+            if (collision.GetComponent<carryBox>() != null)
+            {
+                collision.GetComponent<carryBox>().activateBoxMovement();
+            }
             collision.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
         }
     }
@@ -32,6 +36,10 @@ public class ConveyorBelt : MonoBehaviour
         {
             if (collision.GetComponent<carryBox>().checkIfBeingCarried() == false)
             {
+                if (collision.GetComponent<carryBox>() != null)
+                {
+                    collision.GetComponent<carryBox>().deactivateBoxMovement();
+                }
                 collision.GetComponent<carryBox>().PutDownBox();
             }
         }
