@@ -1,18 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float radius = 3f; //Distance of interaction
+    bool isFocus = false;
+    public Transform player;
+    public GameObject boxTag;
+    
 
-    // Update is called once per frame
     void Update()
     {
+        float distance = Vector3.Distance(player.position, transform.position);
+
+        if (distance <= radius)
+            OnFocused();
+        else
+            OnDefocused();
+
+        if (isFocus)
+        {
+            //Debug.Log("INTERACT");
+            //Any animation pop-ups or some sort of interaction queue happens here (use tags).
+            boxTag.SetActive(true);
+        }
+        else
+            boxTag.SetActive(false); //Defocused.
         
+       
+        
+    }
+    //Visual representation of interaction radius
+    void OnDrawGizmosSelected ()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, radius);
+
+    }
+
+    public void OnFocused ()
+    {
+         isFocus = true;
+    }
+
+    public void OnDefocused()
+    {
+         isFocus = false;
     }
 }
