@@ -8,18 +8,24 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sr;
 
     public float speed;
+    public float maximumCarryReachDistance;
 
     public string liftDropKey;
     public string readKey;
 
     private bool carryingBox;
+    
 
     private carryBox carryableBox;
+    private BoxCollider2D carryableCollider;
 
     public Sprite downFacing;
     public Sprite upFacing;
     public Sprite rightFacing;
     public Sprite leftFacing;
+
+    private bool playerIsStopped;
+    private Vector2 previousPlayerPosition;
 
 
     // Start is called before the first frame update
@@ -27,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        previousPlayerPosition = rb.position;
 
         carryingBox = false;
     }
@@ -39,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
         float vert = Input.GetAxisRaw("Vertical");
         rb.velocity = new Vector2(horiz * speed, vert * speed);
 
+        if (carryingBox)
+        {
+            checkMaximumCarryReach();
+        }
         if (Input.GetKeyDown(liftDropKey))
         {
             if (carryingBox)
@@ -78,6 +90,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider != carryableCollider)
+        {
+            playerIsStopped = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider != carryableCollider)
+        {
+            playerIsStopped = false;
+        }
+    }
+
+    public bool isPlayerStopped()
+    {
+        return playerIsStopped;
+    }
+
     void FixedUpdate()
     {
         
@@ -87,8 +120,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (carryableBox != null)
         {
-            carryableBox.CarryBox(rb);
+            carryableBox.CarryBox(rb, this);
             carryingBox = true;
+            carryableBox.activateBoxMovement();
         }
     }
 
@@ -97,8 +131,8 @@ public class PlayerMovement : MonoBehaviour
         if (carryingBox == true)
         {
             carryableBox.PutDownBox();
-            carryableBox = null;
             carryingBox = false;
+            carryableBox.deactivateBoxMovement();
         }
     }
 
@@ -119,9 +153,21 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    private void checkMaximumCarryReach()
+    {
+        if (Mathf.Sqrt(Mathf.Pow(rb.position.x - carryableBox.getRB().position.x, 2) + Mathf.Pow(rb.position.y - carryableBox.getRB().position.y, 2)) > maximumCarryReachDistance)
+        {
+            putDown();
+        }
+    }
+
     public void canCarryBox(carryBox box)
     {
-        carryableBox = box;
+        if (!carryingBox)
+        {
+            carryableBox = box;
+            carryableCollider = box.getBoxcol();
+        }
     }
 
     public void cannotCarryBox(carryBox box)
@@ -131,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
             if (carryableBox == box)
             {
                 carryableBox = null;
+                carryableCollider = null;
             }
         }
     }

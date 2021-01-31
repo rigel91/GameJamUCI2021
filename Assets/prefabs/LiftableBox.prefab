@@ -783,10 +783,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d36fcbec2ee0b440a957c64b0805d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beingCarried: 0
   pickUpRange: {fileID: 2849349183894059597}
   textName: {fileID: 138897332}
   textAddressTo: {fileID: 1862819560}
   textAddressFrom: {fileID: 1506403798}
+  heightLimit: 10
+  shiftHeight: 80
 --- !u!114 &964982959
 MonoBehaviour:
   m_ObjectHideFlags: 0

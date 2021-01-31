@@ -1207,10 +1207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d36fcbec2ee0b440a957c64b0805d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  beingCarried: 0
   pickUpRange: {fileID: 0}
   textName: {fileID: 0}
   textAddressTo: {fileID: 0}
   textAddressFrom: {fileID: 0}
+  heightLimit: 0
+  shiftHeight: 70
 --- !u!50 &487368482
 Rigidbody2D:
   serializedVersion: 4
@@ -1776,75 +1779,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1411019600
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 138897331, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -152.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862819559, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -168.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1862819560, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739411, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2849349183917739412, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
-      propertyPath: m_Name
-      value: LiftableBox
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dd2b595f121243e4683e6db2ba2d04a8, type: 3}
 --- !u!1 &1635855461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1935,7 +1869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -6.131, y: -2.957, z: -3.121}
 --- !u!1 &1664434786
 GameObject:
@@ -2463,6 +2397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  maximumCarryReachDistance: 15
   liftDropKey: space
   readKey: e
   downFacing: {fileID: 21300000, guid: 4681d1c7ca9dd9c46ac328300e470448, type: 3}

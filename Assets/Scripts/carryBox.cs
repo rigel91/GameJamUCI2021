@@ -6,12 +6,15 @@ using TMPro;
 
 public class carryBox : MonoBehaviour
 {
-    private bool beingCarried;
+    public bool beingCarried;
     private bool canBeCarried;
+    private BoxCollider2D boxcol;
 
     public BoxCollider2D pickUpRange;
 
     private Rigidbody2D carrier;
+    //private Rigidbody2D carrierRB;
+    private PlayerMovement carrierPM;
     private Rigidbody2D boxRB;
 
     private boxInfo boxData;
@@ -21,17 +24,24 @@ public class carryBox : MonoBehaviour
     public TextMeshProUGUI textAddressTo;
     public TextMeshProUGUI textAddressFrom;
 
+    public float heightLimit;
+    private bool tagShifted;
+    public float shiftHeight = 70;
+
     // Start is called before the first frame update
     void Start()
     {
         beingCarried = false;
         boxRB = this.GetComponent<Rigidbody2D>();
+        boxcol = GetComponent<BoxCollider2D>();
 
         boxData = GetComponent<boxInfo>();
 
         //gets the canvas from the boxes child
         boxUI = GetComponentInChildren<Canvas>();
         boxUI.enabled = false;
+
+        tagShifted = false;
     }
 
     public void Set()
@@ -52,14 +62,34 @@ public class carryBox : MonoBehaviour
 
         if (beingCarried)
         {
-            boxRB.velocity = carrier.velocity;
+            if (!carrierPM.isPlayerStopped())
+            {
+                boxRB.velocity = carrier.velocity;
+            }
+            else
+            {
+                boxRB.velocity = new Vector2(0, 0);
+            }
+
+            shiftTagUI();
         }
     }
 
-    public void CarryBox(Rigidbody2D player)
+    public Rigidbody2D getRB()
+    {
+        return boxRB;
+    }
+
+    public BoxCollider2D getBoxcol()
+    {
+        return boxcol;
+    }
+
+    public void CarryBox(Rigidbody2D player, PlayerMovement playerPM)
     {
         beingCarried = true;
         carrier = player;
+        carrierPM = playerPM;
     }
 
     public void PutDownBox()
@@ -93,5 +123,40 @@ public class carryBox : MonoBehaviour
     public bool checkIfBeingCarried()
     {
         return beingCarried;
+    }
+
+    public void activateBoxMovement()
+    {
+        boxRB.bodyType = RigidbodyType2D.Dynamic;
+        boxRB.drag = 0;
+    }
+    public void deactivateBoxMovement()
+    {
+        boxRB.bodyType = RigidbodyType2D.Static;
+    }
+
+    private void shiftTagUI()
+    {
+        //shifts tag UI's height to below the box when the box is above a certain height, or back up if there is room again
+        if(boxRB.position.y > heightLimit)
+        {
+            if (!tagShifted)
+            {
+                boxUI.GetComponent<Transform>().position = new Vector3(boxUI.GetComponent<Transform>().position.x, boxUI.GetComponent<Transform>().position.y - shiftHeight, boxUI.GetComponent<Transform>().position.z);
+                tagShifted = true;
+            }
+            
+        }
+        if (boxRB.position.y < heightLimit)
+        {
+            if (tagShifted)
+            {
+                boxUI.GetComponent<Transform>().position = new Vector3(boxUI.GetComponent<Transform>().position.x, boxUI.GetComponent<Transform>().position.y + shiftHeight, boxUI.GetComponent<Transform>().position.z);
+                tagShifted = false;
+            }
+        }
+        
+
+
     }
 }
