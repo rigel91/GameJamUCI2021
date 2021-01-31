@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BoxCollector : MonoBehaviour
 {
+    private PlayerMovement player;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -34,7 +36,12 @@ public class BoxCollector : MonoBehaviour
 
     public void DestroyBox(Collider2D collision)
     {
-            ScoreManager.instance.AddPoint();
-            Destroy(collision.gameObject, 0.5f);
+        if (player.isCarryingBox())
+        {
+            player.forceDrop();
+        }
+
+        ScoreManager.instance.AddPoint();
+        Destroy(collision.gameObject, 0.5f);
     }
 }

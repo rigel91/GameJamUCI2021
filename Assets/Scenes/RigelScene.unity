@@ -849,7 +849,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000023841858}
+  m_Offset: {x: -0.06802511, y: 0.07605249}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -860,7 +860,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0000005, y: 4}
+  m_Size: {x: 1.9592223, y: 2.7179713}
   m_EdgeRadius: 0
 --- !u!114 &256191098
 MonoBehaviour:
@@ -1370,27 +1370,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 116.3
+      value: -247
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 70.6
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -305.9126
+      value: 395.0874
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -199.05261
+      value: 194.94739
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 188314024854700994, guid: 13d21158473c8e44898f783f6982770d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2482,7 +2482,7 @@ GameObject:
   - component: {fileID: 1999619984}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

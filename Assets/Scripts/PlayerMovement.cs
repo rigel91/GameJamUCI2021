@@ -181,4 +181,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    public bool isCarryingBox()
+    {
+        return carryingBox;
+    }
+
+    public void forceDrop()
+    {
+        putDown();
+    }
 }
