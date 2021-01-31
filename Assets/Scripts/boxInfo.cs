@@ -36,12 +36,12 @@ public class boxInfo : MonoBehaviour
 
     //list of all the info for the box
     [System.NonSerialized]
-    public List<string> mailBox;
+    public List<string> mailBox = new List<string> { };
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject temp = GameObject.Find("BoxSpawner");
+        GameObject temp = GameObject.FindGameObjectWithTag("BoxSpawner");
         manage = temp.GetComponent<boxManager>();
 
         mailBox.Add(CreateRandomName());
@@ -55,21 +55,20 @@ public class boxInfo : MonoBehaviour
         
     }
 
-    int CreateRandomNumber(int range)
+    public int CreateRandomNumber(int range)
     {
         return Random.Range(0, range);
     }
 
-    string CreateRandomName()
+    public string CreateRandomName()
     {
         //create first and last names
         firstName = manage.firstNamesList[CreateRandomNumber(manage.firstNamesList.Length)];
         lastName = manage.lastNamesList[CreateRandomNumber(manage.lastNamesList.Length)];
-
-        return firstName + " " + lastName;
+        return "To: " + firstName + " " + lastName;
     }
 
-    string CreateRandomHomeAddressTo()
+    public string CreateRandomHomeAddressTo()
     {
         toCity = manage.citiesList[CreateRandomNumber(manage.citiesList.Length)];
         toStreet = manage.streetsList[CreateRandomNumber(manage.streetsList.Length)];
@@ -86,10 +85,10 @@ public class boxInfo : MonoBehaviour
         {
             totalZipTo += Random.Range(0, 10).ToString();
         }
-        return "To: " + totalAddressTo + " " + toStreet + ", " + toCity + " " + totalZipTo;               
+        return totalAddressTo + " " + toStreet + ", " + toCity + " " + totalZipTo;               
     }
 
-    string CreateRandomHomeAddressFrom()
+    public string CreateRandomHomeAddressFrom()
     {
         fromCity = manage.citiesList[CreateRandomNumber(manage.citiesList.Length)];
         fromStreet = manage.streetsList[CreateRandomNumber(manage.streetsList.Length)];
@@ -111,6 +110,8 @@ public class boxInfo : MonoBehaviour
 
     public string GetName()
     {
+        //return "Rigel Kuper";
+        
         return mailBox[0];
     }
 
