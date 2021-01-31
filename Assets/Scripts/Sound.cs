@@ -8,7 +8,7 @@ public class Sound
 
     //Base of Sound Class.
     public AudioClip clip;
-    public AudioMixer group;
+    public AudioMixer output;
 
     [Range(0f, 1f)]
     public float volume;
@@ -17,7 +17,8 @@ public class Sound
     [HideInInspector]
     public AudioSource source;
 
-    public bool loop;
     public bool playOnAwake;
+    public bool loop;
 
 }
+

@@ -31,11 +31,12 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //Each Sound Clip gets appropraitly created
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
 
             s.source.clip = s.clip;
+            //s.source.output = s.output;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -45,7 +46,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void Play(string name)
@@ -54,3 +55,4 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 }
+
