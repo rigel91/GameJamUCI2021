@@ -21,6 +21,8 @@ public class BoxCollector : MonoBehaviour
         if (collision.tag == "Box")
         {
             Debug.Log("Box!");
+
+            ScoreManager.instance.AddPoint();
         }
     }
 }
