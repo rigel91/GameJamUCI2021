@@ -1221,15 +1221,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerMarks:
-  - 5
-  - 10
+  - 1
+  - 2
+  - 3
+  - 13
+  - 14
   - 15
-  - 20
-  - 35
+  - 25
+  - 26
+  - 27
+  - 37
+  - 38
+  - 39
   - 50
   - 60
-  totalBoxSpawns: 3
-  totalBoxRequests: 3
+  - 70
+  - 80
+  - 90
+  - 100
+  - 115
+  totalBoxSpawns: 12
+  totalBoxRequests: 6
 --- !u!1 &256191095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &859347086
 RectTransform:
   m_ObjectHideFlags: 0

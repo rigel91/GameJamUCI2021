@@ -14,7 +14,7 @@ public class requestManager : MonoBehaviour
     void Start()
     {
         rtbm = GameObject.FindGameObjectWithTag("reqTextBoxMngr").GetComponent<displayOpenRequests>();
-        bm = GameObject.FindGameObjectWithTag("boxSpawner").GetComponent<boxManager>();
+        bm = GameObject.FindGameObjectWithTag("BoxSpawner").GetComponent<boxManager>();
     }
 
     // Update is called once per frame
