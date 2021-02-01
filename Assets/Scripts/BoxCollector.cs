@@ -8,7 +8,6 @@ public class BoxCollector : MonoBehaviour
 
     public requestManager rg;
 
-    [System.NonSerialized]
     public int boxCount;
 
     // Start is called before the first frame update

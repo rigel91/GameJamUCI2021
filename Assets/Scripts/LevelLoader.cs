@@ -36,6 +36,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (theTimer.ringTimer())
         {
+            Debug.Log("here1");
             //make the player stop moving
             stop = true;
             phrase.text = "Times up!";
@@ -43,8 +44,9 @@ public class LevelLoader : MonoBehaviour
             score.text = scoreManager.score.ToString();
             menu.SetActive(true);
         }
-        if (boxCollector.boxCount == manager.totalBoxSpawns)
+        if (boxCollector.boxCount == manager.totalBoxRequests)
         {
+            
             //stop the clock count for the scene
             //make the player stop moving
             stop = true;
@@ -74,8 +76,8 @@ public class LevelLoader : MonoBehaviour
     {
         if (scoreManager.score >= pointsToPass || !theTimer.ringTimer())
         {
-            Debug.Log("Next Level");
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //Debug.Log("Next Level");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
         else
         {
@@ -85,6 +87,6 @@ public class LevelLoader : MonoBehaviour
 
     public void MainMenu()
     {
-        Debug.Log("Main menu");
+        SceneManager.LoadScene("Title");
     }
 }

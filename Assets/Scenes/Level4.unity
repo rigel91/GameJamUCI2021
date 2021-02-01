@@ -1221,15 +1221,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerMarks:
+  - 1
+  - 2
+  - 3
+  - 4
   - 5
-  - 10
-  - 15
-  - 20
-  - 35
-  - 50
-  - 60
-  totalBoxSpawns: 3
-  totalBoxRequests: 3
+  - 12
+  - 19
+  - 26
+  - 33
+  - 40
+  - 47
+  totalBoxSpawns: 5
+  totalBoxRequests: 5
 --- !u!1 &256191095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,7 +2875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &859347086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2941,7 +2945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28bdf2016945c134bacfb5d0e3cf411c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsToPass: 20
+  pointsToPass: 30
   score: {fileID: 1742603680}
   phrase: {fileID: 410366651}
   buttonLevel: {fileID: 810500012}
