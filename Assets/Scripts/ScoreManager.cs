@@ -30,13 +30,19 @@ public class ScoreManager : MonoBehaviour
     {
         score += pointReward;
         updateScoreDisplay();
+
+        //Audio
+        AudioManager.instance.Play("ScoreIncrease");
     }
 
     public void DeductPoints()
     {
         score -= pointPenalty;
         updateScoreDisplay();
-        
+
+        //Audio
+        AudioManager.instance.Play("Fail");
+
     }
 
     private void updateScoreDisplay()
