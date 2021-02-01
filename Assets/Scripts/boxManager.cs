@@ -37,5 +37,10 @@ public class boxManager : MonoBehaviour
 
         boxList.Add(newBox);
     }
+
+    public void deleteBox(GameObject box)
+    {
+        boxList.Remove(box);
+    }
  
 }
