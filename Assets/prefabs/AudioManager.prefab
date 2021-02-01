@@ -49,7 +49,7 @@ MonoBehaviour:
   - name: DestroyBox
     clip: {fileID: 8300000, guid: f1562db66b592b44fa2685a04780b9b4, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.226
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
   - name: BoxDown
     clip: {fileID: 8300000, guid: c28797f8e0efbb34dbad61f2cbef32ea, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.199
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   - name: Fail
     clip: {fileID: 8300000, guid: 89e6bc608da7b47d4914f3d9c2484e48, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.173
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   - name: ScoreIncrease
     clip: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.215
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
   - name: Success
     clip: {fileID: 8300000, guid: 0c008ee3ee72a4362a35be25fa5de043, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.194
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   - name: TickWarning
     clip: {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.199
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   - name: LabelAway
     clip: {fileID: 8300000, guid: d46323e22e74e46baa241cbf48c85671, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.184
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   - name: BoxUp
     clip: {fileID: 8300000, guid: 6233fe1ad82ed8741b52a87606029264, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.105
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   - name: LabelView
     clip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
     output: {fileID: 0}
-    volume: 1
+    volume: 0.084
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0

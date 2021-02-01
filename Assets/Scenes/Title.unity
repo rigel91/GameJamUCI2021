@@ -933,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &674476793
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2607,7 +2607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214, y: -17}
+  m_AnchoredPosition: {x: 214, y: -25.3}
   m_SizeDelta: {x: 346.792, y: 86.86487}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473631394
@@ -2632,10 +2632,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Use W,A,S,D to move
 
-    Use Spacebar to grab boxes
+    Use Spacebar to grab packages
 
-    Press E to read
-    the boxes'
+    Press E to
+    read the packages
+
+    Deliver requested packages to table'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9db1d8877c474644b801828136725083, type: 2}
   m_sharedMaterial: {fileID: 6074610829456763533, guid: 9db1d8877c474644b801828136725083, type: 2}
@@ -2662,8 +2664,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2955,7 +2957,7 @@ RectTransform:
   m_GameObject: {fileID: 1681466748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.883095, y: 0.3115432, z: 0.95886}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1202056972}
   m_RootOrder: 0
@@ -3001,7 +3003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 214, y: -86.397995}
+  m_AnchoredPosition: {x: 214, y: -116.2}
   m_SizeDelta: {x: 289.81995, y: 96.355804}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737164634
