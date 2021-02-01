@@ -60,7 +60,7 @@ public class BoxCollector : MonoBehaviour
 
         ScoreManager.instance.AddPoint();
         //Audio
-        AudioManager.instance.Play("Destroy");
+        AudioManager.instance.Play("DestroyBox");
         Destroy(collision.gameObject, 0.5f);
     }
 
