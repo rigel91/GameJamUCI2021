@@ -61,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
                 if (carryingBox)
                 {
                     putDown();
+
+                    //Audio
+                    AudioManager.instance.Play("BoxDown");
                 }
                 else
                 {
@@ -133,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
             carryableBox.CarryBox(rb, this);
             carryingBox = true;
             carryableBox.activateBoxMovement();
+            //Audio
+            AudioManager.instance.Play("BoxUp");
         }
     }
 
@@ -154,10 +159,14 @@ public class PlayerMovement : MonoBehaviour
             if (carryableBox.boxUI.enabled == true)
             {
                 carryableBox.boxUI.enabled = false;
+                //Audio
+                AudioManager.instance.Play("LabelAway");
             }
             else
             {
                 carryableBox.boxUI.enabled = true;
+                //Audio
+                AudioManager.instance.Play("LabelView");
             }
         }
         
